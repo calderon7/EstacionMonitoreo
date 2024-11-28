@@ -7,6 +7,9 @@ interface MapComponentProps {
 }
 
 const Map: React.FC<MapComponentProps> = ({ coordinates }) => {
+  if (!coordinates || coordinates.length === 0) {
+    return null;
+  }
   return (
     <MapContainer
       center={[coordinates[0].lat, coordinates[0].lng]} 

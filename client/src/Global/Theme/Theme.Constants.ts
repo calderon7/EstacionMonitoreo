@@ -3,7 +3,7 @@ import { ITheme, TTheme } from './Theme.interface'
 export const PLATFORM_THEME: TTheme = 'light'
 
 export const LIGHT_THEME: ITheme = {
-  mainColor: '#820ad1',
+  mainColor: '#ff8000',
   backgroundColor: '#FFFFFF',
   containerColor: '#f6f6f6',
   borderLightColor: '#e8e8e8',

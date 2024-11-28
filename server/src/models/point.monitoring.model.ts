@@ -78,3 +78,16 @@ export async function updatePointMonitoringModel(
     throw error;
   }
 }
+
+export async function deletePointMonitoringModel(id: string) {
+  const userRepository = AppDataSource.getRepository(PuntoMonitoreo);
+  
+  try {
+    const deleteResult = await userRepository.delete(id);
+
+    return deleteResult.affected && deleteResult.affected > 0;
+  } catch (error) {
+    console.error('Error en deletePointMonitoringModel:', error);
+    throw error;
+  }
+}

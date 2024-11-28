@@ -28,6 +28,10 @@
     "lbStatus": "Estado",
     "active": "Activo",
     "actions": "Acciones",
+    "deleteElement": "Eliminar {{element}}",
+    "doYouWantDeleteRecord": "¿Seguro que desea eliminar el registro <strong className='error'>{{element}}</strong>?",
+    "deleteElementWait": "Eliminando el {{element}}, por favor espere...",
+    "deleteConfirmation": "Confirmar eliminación",
     "inactive": "Inactivo"
 
 }

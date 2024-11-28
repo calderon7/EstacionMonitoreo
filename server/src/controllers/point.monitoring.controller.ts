@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getPointMonitoringModel, postPointMonitoringModel, putStatusPointMonitoringModel, updatePointMonitoringModel } from '../models';
+import { deletePointMonitoringModel, getPointMonitoringModel, postPointMonitoringModel, putStatusPointMonitoringModel, updatePointMonitoringModel } from '../models';
 import { IPostPointMonitoring } from './point.monitoring.interface';
 
 export const getPointMonitoring = async (
@@ -116,6 +116,38 @@ export const updatePointMonitoring = async (
     res.status(500).json({
       success: false,
       message: 'Ocurrió un error al intentar actualizar el punto de monitoreo.',
+      error: error instanceof Error ? error.message : 'Error desconocido',
+    });
+  }
+};
+
+export const deletePointMonitoring = async (
+  req: Request<{ id: string }>,
+  res: Response
+) => {
+  try {
+    const { id } = req.params;
+
+    const deleteResult = await deletePointMonitoringModel(id);
+
+    if (deleteResult) {
+      res.status(200).json({
+        success: true,
+        message: 'Punto de monitoreo eliminado exitosamente.',
+      });
+      return;
+    }
+
+    res.status(404).json({
+      success: false,
+      message: 'Punto de monitoreo no encontrado o no se pudo eliminar.',
+    });
+  } catch (error) {
+    console.error('Error en deletePointMonitoring:', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'Ocurrió un error al intentar eliminar el punto de monitoreo.',
       error: error instanceof Error ? error.message : 'Error desconocido',
     });
   }

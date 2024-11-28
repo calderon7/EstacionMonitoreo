@@ -30,6 +30,8 @@ export const mutationFetchUpdatePointMonitoring = (
   updatePoint: ICreateOrEditPointMonitoring
 ) => api.put(`/main/edit-point-monitoring/${updatePoint.id}`, updatePoint)
 
+export const mutationFetchDeletePointMonitoring = (id: number) => api.delete(`/main/delete-point-monitoring/${id}`)
+
 export function useFetchPointMonitoring() {
   return useQuery({
     queryKey: ['pointMonitoring'],

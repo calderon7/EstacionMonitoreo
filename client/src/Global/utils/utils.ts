@@ -79,3 +79,11 @@ export function getSeverityName(status: number) {
       return null
   }
 }
+
+export function cambiarComasPorPuntos(input: string | number): string {
+  const inputStr = input.toString();
+  
+  const resultado = inputStr.replace(/,/g, '.');
+  
+  return resultado;
+}

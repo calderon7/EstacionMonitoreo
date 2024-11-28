@@ -6,6 +6,7 @@ import { DARK_THEME, LIGHT_THEME, Styles, themeStore } from './Global'
 import { ThemeProvider } from 'styled-components'
 import { Toaster } from 'sonner'
 import { ConfirmDialog } from 'primereact/confirmdialog'
+import 'leaflet/dist/leaflet.css';
 
 function App() {
   const { theme } = themeStore()

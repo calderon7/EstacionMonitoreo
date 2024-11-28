@@ -1,14 +1,17 @@
-import { Card } from 'primereact/card'
-import { START_ICON_DUOTONE, START_ICON_LIGHT } from '../../../Global'
-import { TabPanel, TabView } from 'primereact/tabview'
-import Sidebar from '../../ui/sidebar/Sidebar'
-import { useState } from 'react'
 import { t } from 'i18next'
+import { Card } from 'primereact/card'
+import { TabPanel, TabView } from 'primereact/tabview'
+import { useState } from 'react'
 import { Trans } from 'react-i18next'
+import { START_ICON_DUOTONE, START_ICON_LIGHT } from '../../../Global'
+import MapsPoint from '../../MapsPoint/MapsPoint'
 import PointMonitoringTable from '../../PointMonitoringTable/PointMonitoringTable'
+import Sidebar from '../../ui/sidebar/Sidebar'
+import { GlobalStore } from '../../../store'
 
 function PointMonitoring() {
   const [isShowCreateSidebar, setIsShowCreateSidebar] = useState(false)
+  const {coordinates} = GlobalStore()
   const [nameFormik, setNameFormik] = useState('')
   const containerTitle: JSX.Element = (
     <div className="flex flex-row justify-content-between">
@@ -118,7 +121,10 @@ function PointMonitoring() {
           header={t('mapsMonitoreo')}
           className="flex gap-1"
           leftIcon={`${START_ICON_LIGHT}map mr-2`}
-        ></TabPanel>
+        >
+          <MapsPoint coordinates={coordinates}>
+          </MapsPoint>
+        </TabPanel>
       </TabView>
     </Card>
   )

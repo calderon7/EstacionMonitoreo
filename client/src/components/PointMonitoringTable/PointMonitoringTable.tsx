@@ -4,7 +4,7 @@ import { DataTable } from 'primereact/datatable'
 import { Tag } from 'primereact/tag'
 import { useEffect, useState } from 'react'
 import { Trans } from 'react-i18next'
-import { formatDate, getSeverityName, START_ICON_LIGHT } from '../../Global'
+import { cambiarComasPorPuntos, formatDate, getSeverityName, START_ICON_LIGHT } from '../../Global'
 import {
   mutationFetchDeletePointMonitoring,
   mutationFetchUpdateStatusPointMonitoring,
@@ -24,7 +24,7 @@ function PointMonitoringTable() {
     PuntoMonitoreo[]
   >([])
 
-  const { editPointMonitoring, setEditPointMonitoring } = GlobalStore()
+  const { editPointMonitoring, setEditPointMonitoring, coordinates, setCoordinates} = GlobalStore()
   const [totalRecords, setTotalRecords] = useState(0)
   const [isShowCreateSidebar, setIsShowCreateSidebar] = useState(false)
   const {
@@ -41,6 +41,15 @@ function PointMonitoringTable() {
         })
       )
 
+      const dataCoor = pointMonitoring.data.map(
+        (point: IPropsGetPointMonitoring) => ({
+          lat: cambiarComasPorPuntos(point.latitude),
+          lng: cambiarComasPorPuntos(point.length),
+          label: point.name,
+        })
+      )
+
+      setCoordinates(dataCoor)
       setPointMonitoringTable(updatedPointMonitoring)
       setTotalRecords(updatedPointMonitoring.length)
     } else if (!isLoading && isError) {

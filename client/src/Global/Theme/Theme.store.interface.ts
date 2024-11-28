@@ -1,5 +1,4 @@
-import { TTheme } from "./Theme.interface"
-
+import { TTheme } from './Theme.interface'
 
 export type ThemeStore = {
   theme: TTheme

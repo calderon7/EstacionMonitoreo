@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { PLATFORM_THEME } from './Theme.Constants'
 import { ThemeActions, ThemeStore } from './Theme.store.interface'
 import { TTheme } from './Theme.interface'
+import { PLATFORM_THEME } from './Theme.Constants'
 
 export const themeStore = create(
   persist<ThemeStore & ThemeActions>(

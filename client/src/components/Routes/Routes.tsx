@@ -7,7 +7,7 @@ function Routes() {
         <BrowserRouter>
           <RoutesGroup>
             <Route
-              path="/point-monitoring"
+              path="/"
               element={<PointMonitoring></PointMonitoring>}
             />
           </RoutesGroup>

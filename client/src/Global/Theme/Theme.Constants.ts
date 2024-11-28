@@ -1,5 +1,4 @@
-import { ITheme, TTheme } from "./Theme.interface"
-
+import { ITheme, TTheme } from './Theme.interface'
 
 export const PLATFORM_THEME: TTheme = 'light'
 

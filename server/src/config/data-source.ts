@@ -2,6 +2,9 @@ import 'dotenv/config';
 import { DataSource } from 'typeorm';
 import { PuntoMonitoreo } from '../database';
 
+console.log(process.env.DB_HOST, process.env.DB_PORT, process.env.DB_USER, process.env.DB_PASSWORD, process.env.DB_DATABASE, process.env.DB_SYNCHRONIZE);
+
+
 export const AppDataSource = new DataSource({
   type: 'mysql',
   host: process.env.DB_HOST || 'localhost',
